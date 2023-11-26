@@ -1,15 +1,12 @@
-package com.artpit.android.cryptoapp
+package com.artpit.android.cryptoapp.presentation
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.artpit.android.cryptoapp.adapters.CoinInfoAdapter
+import com.artpit.android.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.artpit.android.cryptoapp.databinding.ActivityCoinPriceListBinding
-import com.artpit.android.cryptoapp.databinding.ItemCoinInfoBinding
-import com.artpit.android.cryptoapp.pojo.pricemultifull.CoinPriceInfo
+import com.artpit.android.cryptoapp.data.model.CoinPriceInfo
 
 class CoinPriceListActivity : AppCompatActivity() {
     private lateinit var viewModel: CoinViewModel
@@ -28,7 +25,10 @@ class CoinPriceListActivity : AppCompatActivity() {
 //                Log.d("TEST_OF_ONCLICK_ITEM", "Selected: ${coinPriceInfo.fromSymbol}")
 //                val intent = Intent(this@CoinPriceListActivity, CoinDetailActivity::class.java)
 //                intent.putExtra(CoinDetailActivity.EXTRA_FROM_SYMBOL, coinPriceInfo.fromSymbol)
-                val coinDetailInfoIntent = CoinDetailActivity.newIntent(this@CoinPriceListActivity, coinPriceInfo.fromSymbol)
+                val coinDetailInfoIntent = CoinDetailActivity.newIntent(
+                    this@CoinPriceListActivity,
+                    coinPriceInfo.fromSymbol
+                )
                 startActivity(coinDetailInfoIntent)
             }
 

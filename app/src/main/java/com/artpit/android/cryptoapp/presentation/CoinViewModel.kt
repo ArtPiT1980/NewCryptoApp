@@ -1,13 +1,13 @@
-package com.artpit.android.cryptoapp
+package com.artpit.android.cryptoapp.presentation
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.artpit.android.cryptoapp.api.ApiFactory
-import com.artpit.android.cryptoapp.database.AppDatabase
-import com.artpit.android.cryptoapp.pojo.pricemultifull.CoinPriceInfo
-import com.artpit.android.cryptoapp.pojo.pricemultifull.CoinPriceInfoRawData
+import com.artpit.android.cryptoapp.data.network.ApiFactory
+import com.artpit.android.cryptoapp.data.database.AppDatabase
+import com.artpit.android.cryptoapp.data.model.CoinPriceInfo
+import com.artpit.android.cryptoapp.data.model.CoinPriceInfoRawData
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

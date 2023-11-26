@@ -1,4 +1,4 @@
-package com.artpit.android.cryptoapp.pojo.totalvolfull
+package com.artpit.android.cryptoapp.data.model
 
 
 import com.google.gson.annotations.Expose
@@ -8,10 +8,4 @@ data class CoinInfoListOfData(
     @SerializedName("Data")
     @Expose
     val data: List<Data>? = null,
-//    @SerializedName("Message")
-//    @Expose
-//    val message: String,
-//    @SerializedName("Type")
-//    @Expose
-//    val type: Int
 )

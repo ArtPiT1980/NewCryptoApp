@@ -1,9 +1,9 @@
-package com.artpit.android.cryptoapp.pojo.pricemultifull
+package com.artpit.android.cryptoapp.data.model
 
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.artpit.android.cryptoapp.api.ApiFactory
+import com.artpit.android.cryptoapp.data.network.ApiFactory
 import com.artpit.android.cryptoapp.utils.convertTimestampToTime
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose

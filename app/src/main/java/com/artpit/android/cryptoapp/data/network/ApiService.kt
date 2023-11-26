@@ -1,7 +1,7 @@
-package com.artpit.android.cryptoapp.api
+package com.artpit.android.cryptoapp.data.network
 
-import com.artpit.android.cryptoapp.pojo.pricemultifull.CoinPriceInfoRawData
-import com.artpit.android.cryptoapp.pojo.totalvolfull.CoinInfoListOfData
+import com.artpit.android.cryptoapp.data.model.CoinPriceInfoRawData
+import com.artpit.android.cryptoapp.data.model.CoinInfoListOfData
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

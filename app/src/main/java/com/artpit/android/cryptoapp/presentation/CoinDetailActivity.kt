@@ -1,10 +1,9 @@
-package com.artpit.android.cryptoapp
+package com.artpit.android.cryptoapp.presentation
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.artpit.android.cryptoapp.databinding.ActivityCoinDetailBinding
@@ -52,7 +51,7 @@ class CoinDetailActivity : AppCompatActivity() {
 
         fun newIntent(context: Context, fromSymbol: String): Intent {
             val intent = Intent(context, CoinDetailActivity::class.java)
-            intent.putExtra(CoinDetailActivity.EXTRA_FROM_SYMBOL, fromSymbol)
+            intent.putExtra(EXTRA_FROM_SYMBOL, fromSymbol)
             return intent
         }
     }

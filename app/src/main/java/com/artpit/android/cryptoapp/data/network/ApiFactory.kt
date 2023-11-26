@@ -1,4 +1,4 @@
-package com.artpit.android.cryptoapp.api
+package com.artpit.android.cryptoapp.data.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

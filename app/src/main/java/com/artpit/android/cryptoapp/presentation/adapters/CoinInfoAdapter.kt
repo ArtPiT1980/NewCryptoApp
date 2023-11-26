@@ -1,4 +1,4 @@
-package com.artpit.android.cryptoapp.adapters
+package com.artpit.android.cryptoapp.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.artpit.android.cryptoapp.R
-import com.artpit.android.cryptoapp.pojo.pricemultifull.CoinPriceInfo
+import com.artpit.android.cryptoapp.data.model.CoinPriceInfo
 import com.squareup.picasso.Picasso
 
 class CoinInfoAdapter(private val context: Context) : RecyclerView.Adapter<CoinInfoAdapter.CoinInfoViewHolder>() {

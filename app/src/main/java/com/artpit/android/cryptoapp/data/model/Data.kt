@@ -1,4 +1,4 @@
-package com.artpit.android.cryptoapp.pojo.totalvolfull
+package com.artpit.android.cryptoapp.data.model
 
 
 import com.google.gson.annotations.Expose

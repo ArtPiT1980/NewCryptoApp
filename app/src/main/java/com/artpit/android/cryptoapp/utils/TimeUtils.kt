@@ -1,6 +1,5 @@
 package com.artpit.android.cryptoapp.utils
 
-import com.artpit.android.cryptoapp.api.ApiFactory.BASE_IMAGE_URL
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.Date
