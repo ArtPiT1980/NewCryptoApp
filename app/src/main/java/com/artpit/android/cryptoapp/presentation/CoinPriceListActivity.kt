@@ -2,7 +2,6 @@ package com.artpit.android.cryptoapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.artpit.android.cryptoapp.databinding.ActivityCoinPriceListBinding
 import com.artpit.android.cryptoapp.domain.CoinInfo
@@ -10,14 +9,13 @@ import com.artpit.android.cryptoapp.presentation.adapters.CoinInfoAdapter
 
 class CoinPriceListActivity : AppCompatActivity() {
     private lateinit var viewModel: CoinViewModel
-    private lateinit var binding: ActivityCoinPriceListBinding
+    private val binding: ActivityCoinPriceListBinding by lazy {
+        ActivityCoinPriceListBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityCoinPriceListBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
@@ -31,10 +29,9 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         }
         binding.rvCoinPriceList.adapter = adapter
-
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
-        viewModel.coinInfoList.observe(this, Observer {
+        viewModel.coinInfoList.observe(this) {
             adapter.coinInfoList = it
-        })
+        }
     }
 }
