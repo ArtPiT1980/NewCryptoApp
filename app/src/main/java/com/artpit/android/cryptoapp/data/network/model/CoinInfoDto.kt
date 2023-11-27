@@ -1,12 +1,9 @@
 package com.artpit.android.cryptoapp.data.network.model
 
-
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.artpit.android.cryptoapp.data.network.ApiFactory
-import com.artpit.android.cryptoapp.utils.convertTimestampToTime
-import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "full_price_list")
 data class CoinInfoDto(
@@ -35,12 +32,4 @@ data class CoinInfoDto(
     @SerializedName("LASTMARKET")
     @Expose
     val lastMarket: String,
-) {
-    fun getFormattedTime(): String {
-        return convertTimestampToTime(lastUpdate)
-    }
-
-    fun getFullImageUrl(): String {
-        return ApiFactory.BASE_IMAGE_URL + imageUrl
-    }
-}
+)
