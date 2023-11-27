@@ -8,11 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.artpit.android.cryptoapp.R
-import com.artpit.android.cryptoapp.data.network.model.CoinInfoDto
+import com.artpit.android.cryptoapp.data.network.ApiFactory.BASE_IMAGE_URL
+import com.artpit.android.cryptoapp.domain.CoinInfo
+import com.artpit.android.cryptoapp.utils.convertTimestampToTime
 import com.squareup.picasso.Picasso
 
 class CoinInfoAdapter(private val context: Context) : RecyclerView.Adapter<CoinInfoAdapter.CoinInfoViewHolder>() {
-    var coinInfoList: List<CoinInfoDto> = listOf()
+    var coinInfoList: List<CoinInfo> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -35,8 +37,8 @@ class CoinInfoAdapter(private val context: Context) : RecyclerView.Adapter<CoinI
                 val lastUpdateTemplate = context.resources.getString(R.string.last_update_template)
                 tvSymbols.text = String.format(symbolsTemplate, fromSymbol, toSymbol) //"${fromSymbol} / ${toSymbol}"
                 tvPrice.text = price.toString()
-                tvLastUpdate.text = String.format(lastUpdateTemplate, getFormattedTime()) //"Last update: ${getFormattedTime()}"
-                Picasso.get().load(getFullImageUrl()).into(ivLogoCoin)
+                tvLastUpdate.text = String.format(lastUpdateTemplate, convertTimestampToTime(lastUpdate)) //"Last update: ${getFormattedTime()}"
+                Picasso.get().load(BASE_IMAGE_URL + imageUrl).into(ivLogoCoin)
 
                 itemView.setOnClickListener {
                     onCoinClickListener?.onCoinClick(this)
@@ -53,6 +55,6 @@ class CoinInfoAdapter(private val context: Context) : RecyclerView.Adapter<CoinI
     }
 
     interface OnCoinClickListener {
-        fun onCoinClick(coinPriceInfo: CoinInfoDto)
+        fun onCoinClick(coinPriceInfo: CoinInfo)
     }
 }

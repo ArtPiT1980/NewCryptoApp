@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.artpit.android.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.artpit.android.cryptoapp.databinding.ActivityCoinPriceListBinding
-import com.artpit.android.cryptoapp.data.network.model.CoinInfoDto
+import com.artpit.android.cryptoapp.domain.CoinInfo
+import com.artpit.android.cryptoapp.presentation.adapters.CoinInfoAdapter
 
 class CoinPriceListActivity : AppCompatActivity() {
     private lateinit var viewModel: CoinViewModel
@@ -21,10 +21,7 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinInfoDto) {
-//                Log.d("TEST_OF_ONCLICK_ITEM", "Selected: ${coinPriceInfo.fromSymbol}")
-//                val intent = Intent(this@CoinPriceListActivity, CoinDetailActivity::class.java)
-//                intent.putExtra(CoinDetailActivity.EXTRA_FROM_SYMBOL, coinPriceInfo.fromSymbol)
+            override fun onCoinClick(coinPriceInfo: CoinInfo) {
                 val coinDetailInfoIntent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
                     coinPriceInfo.fromSymbol
@@ -36,15 +33,8 @@ class CoinPriceListActivity : AppCompatActivity() {
         binding.rvCoinPriceList.adapter = adapter
 
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
-//        viewModel.loadData()
-        viewModel.priceList.observe(this, Observer {
-//            Log.d("TEST_OF_LOADING_DATA", "Success in activity: $it")
+        viewModel.coinInfoList.observe(this, Observer {
             adapter.coinInfoList = it
         })
-//
-//        viewModel.getDetailInfo("BTC").observe(this, Observer {
-//            Log.d("TEST_OF_LOADING_DATA", "Success in activity: $it")
-//        })
-
     }
 }

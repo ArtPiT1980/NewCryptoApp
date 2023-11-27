@@ -2,7 +2,6 @@ package com.artpit.android.cryptoapp.data.network
 
 import com.artpit.android.cryptoapp.data.network.model.CoinInfoJsonContainerDto
 import com.artpit.android.cryptoapp.data.network.model.CoinNamesListDto
-import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
