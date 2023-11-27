@@ -1,7 +1,7 @@
 package com.artpit.android.cryptoapp.data.network
 
-import com.artpit.android.cryptoapp.data.model.CoinPriceInfoRawData
-import com.artpit.android.cryptoapp.data.model.CoinInfoListOfData
+import com.artpit.android.cryptoapp.data.network.model.CoinInfoJsonContainerDto
+import com.artpit.android.cryptoapp.data.network.model.CoinNamesListDto
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -19,22 +19,22 @@ interface ApiService {
     }
 
     @GET("top/totalvolfull")
-    fun getTopCoinsInfo(
+    suspend fun getTopCoinsInfo(
         @Query(QUERY_PARAM_API_KEY)
         apiKey: String = "",
         @Query(QUERY_PARAM_LIMIT)
         limit: Int = 100,
         @Query(QUERY_PARAM_TO_SYMBOL)
         tSym: String = CURRENCY,
-    ): Single<CoinInfoListOfData>
+    ): CoinNamesListDto
 
     @GET("pricemultifull")
-    fun getFullPriceList(
+    suspend fun getFullPriceList(
         @Query(QUERY_PARAM_API_KEY)
         apiKey: String = "",
         @Query(QUERY_PARAM_FROM_SYMBOLS)
         fSyms: String = COIN,
         @Query(QUERY_PARAM_TO_SYMBOLS)
         tSyms: String = CURRENCY,
-    ): Single<CoinPriceInfoRawData>
+    ): CoinInfoJsonContainerDto
 }

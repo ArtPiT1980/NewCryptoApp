@@ -1,4 +1,4 @@
-package com.artpit.android.cryptoapp.data.model
+package com.artpit.android.cryptoapp.data.network.model
 
 
 import androidx.room.Entity
@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
 @Entity(tableName = "full_price_list")
-data class CoinPriceInfo(
+data class CoinInfoDto(
     @SerializedName("FROMSYMBOL")
     @Expose
     @PrimaryKey

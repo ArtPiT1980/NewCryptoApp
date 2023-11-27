@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.artpit.android.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.artpit.android.cryptoapp.databinding.ActivityCoinPriceListBinding
-import com.artpit.android.cryptoapp.data.model.CoinPriceInfo
+import com.artpit.android.cryptoapp.data.network.model.CoinInfoDto
 
 class CoinPriceListActivity : AppCompatActivity() {
     private lateinit var viewModel: CoinViewModel
@@ -21,7 +21,7 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun onCoinClick(coinPriceInfo: CoinInfoDto) {
 //                Log.d("TEST_OF_ONCLICK_ITEM", "Selected: ${coinPriceInfo.fromSymbol}")
 //                val intent = Intent(this@CoinPriceListActivity, CoinDetailActivity::class.java)
 //                intent.putExtra(CoinDetailActivity.EXTRA_FROM_SYMBOL, coinPriceInfo.fromSymbol)
