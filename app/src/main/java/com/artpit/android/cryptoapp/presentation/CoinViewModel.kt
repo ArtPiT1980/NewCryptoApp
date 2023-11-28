@@ -26,8 +26,4 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getDetailInfo(fromSymbols: String): LiveData<CoinInfo> = getCoinInfoUseCase(fromSymbols)
-
-    override fun onCleared() {
-        super.onCleared()
-    }
 }
