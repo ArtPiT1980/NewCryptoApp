@@ -42,7 +42,6 @@ android {
 }
 
 dependencies {
-    val lifecycle_version = "2.6.2"
     val room_version = "2.6.0"
 
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -58,7 +57,6 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
     implementation("com.squareup.picasso:picasso:2.71828")
     implementation("androidx.work:work-runtime-ktx:2.8.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
