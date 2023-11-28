@@ -1,11 +1,11 @@
-package com.artpit.android.cryptoapp.pojo.totalvolfull
+package com.artpit.android.cryptoapp.data.network.model
 
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class CoinNameContainerDto(
     @SerializedName("CoinInfo")
     @Expose
-    val coinInfo: CoinInfo? = null
+    val coinName: CoinNameDto? = null
 )
